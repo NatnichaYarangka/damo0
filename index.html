@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติส่วนตัว - น้องเพลง</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ส่วนหัวสีแดงตามใจชอบ */
+        .card-header {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: relative;
+        }
+
+        /* วงกลมรูปโปรไฟล์ (ใส่ไอคอนแทนรูปจริง) */
+        .avatar-container {
+            width: 110px;
+            height: 110px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: -55px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .avatar-container i {
+            font-size: 3.5rem;
+            color: #ff4b2b;
+        }
+
+        .card-body {
+            padding: 75px 30px 30px 30px;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 1.6rem;
+            color: #2d3748;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .nickname {
+            font-size: 1.1rem;
+            color: #ff4b2b;
+            font-weight: 600;
+            margin-bottom: 25px;
+            background: #ffe5e5;
+            display: inline-block;
+            padding: 3px 15px;
+            border-radius: 20px;
+        }
+
+        /* ส่วนแสดงข้อมูล */
+        .info-list {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #ff4b2b;
+            transition: all 0.2s ease;
+        }
+
+        .info-item:hover {
+            background: #fff5f5;
+            transform: translateX(5px);
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .info-icon i {
+            font-size: 1.1rem;
+            color: #ff4b2b;
+        }
+
+        .info-content .label {
+            font-size: 0.85rem;
+            color: #a0aec0;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .info-content .text {
+            font-size: 1.05rem;
+            color: #4a5568;
+            font-weight: 600;
+        }
+
+        /* ส่วนท้ายตกแต่ง */
+        .card-footer {
+            text-align: center;
+            border-top: 1px solid #edf2f7;
+            padding-top: 20px;
+            margin-top: 10px;
+        }
+
+        .heart-icon {
+            color: #ff416c;
+            animation: beat .3s infinite alternate;
+        }
+
+        @keyframes beat{
+            to { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <div class="card-header">
+            <div class="avatar-container">
+                <i class="fa-solid fa-child-dress"></i>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <h2 class="name">ด.ญ.ณัฐนิชา ยารังกา</h2>
+            <span class="nickname"><i class="fa-solid fa-music"></i> ชื่อเล่น: น้องเพลง</span>
+
+            <div class="info-list">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fa-solid fa-cake-candles"></i>
+                    </div>
+                    <div class="info-content">
+                        <span class="label">วันเกิด</span>
+                        <span class="text">2 กันยายน 2554</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="info-content">
+                        <span class="label">อาหารที่ชอบ</span>
+                        <span class="text">ข้าวผัดผงกะหรี่</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <div class="info-content">
+                        <span class="label">สีที่ชอบ</span>
+                        <span class="text" style="color: #d32f2f;">สีแดง <i class="fa-solid fa-circle" style="color: #ff4b2b; font-size: 0.8rem;"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <p style="font-size: 0.85rem; color: #a0aec0;">Made with <i class="fa-solid fa-heart heart-icon"></i> for Nong Pleng</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
