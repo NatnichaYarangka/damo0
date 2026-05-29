@@ -3,340 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>การ์ดประวัติส่วนตัวนักเรียน - ด.ญ.ณัฐนิชา ยารังกา</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap');
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Sarabun', sans-serif;
-            background-color: #f0f4f8;
-            color: #334e68;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .profile-card {
-            background: #ffffff;
-            width: 100%;
-            max-width: 800px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            border: 1px solid #d9e2ec;
-            position: relative;
-        }
-
-        /* Header Styling */
-        .header-banner {
-            background: linear-gradient(135deg, #1992d4 0%, #0b69a3 100%);
-            color: #ffffff;
-            padding: 40px 40px 30px 40px;
-            text-align: center;
-            position: relative;
-        }
-
-        .header-banner h1 {
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-
-        .header-banner .school-info {
-            font-size: 16px;
-            opacity: 0.9;
-            font-weight: 400;
-            margin-bottom: 5px;
-        }
-
-        .header-banner .class-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-top: 5px;
-        }
-
-        /* Main Content Grid */
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            padding: 35px;
-        }
-
-        @media (max-width: 600px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-                padding: 20px;
+    <title>ประวัติส่วนตัวนักเรียน - ด.ญ.ณัฐนิชา ยารังกา</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Sarabun & Itim (สำหรับคติประจำใจหรือหัวข้อที่ดูเป็นมิตร) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Sarabun', 'sans-serif'],
+                        cute: ['Itim', 'cursive'],
+                    }
+                }
             }
         }
-
-        /* Section Styling */
-        .section-box {
-            background-color: #f8fafc;
-            border-radius: 12px;
-            padding: 20px;
-            border-left: 5px solid #1992d4;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #0b69a3;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 5px;
-        }
-
-        /* Info Item List */
-        .info-list {
-            list-style: none;
-        }
-
-        .info-item {
-            display: flex;
-            margin-bottom: 10px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .info-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .info-label {
-            font-weight: 600;
-            color: #486581;
-            width: 110px;
-            flex-shrink: 0;
-        }
-
-        .info-value {
-            color: #243b53;
-            flex-grow: 1;
-        }
-
-        /* Tags / Pills Styling */
-        .tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 5px;
-        }
-
-        .tag {
-            background-color: #e1f5fe;
-            color: #0288d1;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 13px;
-            font-weight: 500;
-            border: 1px solid #b3e5fc;
-        }
-
-        .tag.skill-tag {
-            background-color: #e0f2f1;
-            color: #00796b;
-            border: 1px solid #b2dfdb;
-        }
-
-        /* Motto Section Full Width */
-        .motto-section {
-            grid-column: 1 / -1;
-            background: #f0fdf4;
-            border-left: 5px solid #22c55e;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .motto-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #166534;
-            margin-bottom: 6px;
-        }
-
-        .motto-text {
-            font-size: 18px;
-            font-weight: 700;
-            color: #15803d;
-            font-style: italic;
-        }
-
-        /* Print optimization for A4 */
+    </script>
+    
+    <style>
+        /* CSS สำหรับควบคุมการพิมพ์ให้อยู่ในหน้า A4 พอดี */
         @media print {
             body {
-                background-color: #ffffff;
+                background: white;
+                color: black;
+                margin: 0;
                 padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
-            .profile-card {
-                box-shadow: none;
-                border: 1px solid #cbd5e1;
-                width: 100%;
+            .no-print {
+                display: none;
+            }
+            .print-container {
+                box-shadow: none !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 15mm !important;
+                width: 210mm;
+                height: 297mm;
                 max-width: 100%;
-                border-radius: 0;
+                page-break-after: avoid;
+                page-break-inside: avoid;
             }
-            .header-banner {
-                background: #1992d4 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .section-box {
-                background-color: #f8fafc !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .tag {
-                background-color: #e1f5fe !important;
-                border: 1px solid #b3e5fc !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .tag.skill-tag {
-                background-color: #e0f2f1 !important;
-                border: 1px solid #b2dfdb !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .motto-section {
-                background: #f0fdf4 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
+        }
+        
+        /* สไตล์เสริมเพื่อให้ดูมีมิติ */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-100 font-sans text-slate-700 min-h-screen py-8 flex flex-col items-center justify-center">
 
-    <div class="profile-card">
-        <!-- Header Banner -->
-        <div class="header-banner">
-            <h1>ด.ญ.ณัฐนิชา ยารังกา (เพลง)</h1>
-            <div class="school-info">โรงเรียนจอมทอง</div>
-            <div class="class-badge">ชั้นมัธยมศึกษาปีที่ 3/2</div>
-        </div>
+    <!-- ปุ่มสั่งพิมพ์ (จะซ่อนเมื่อสั่งพิมพ์จริง) -->
+    <div class="no-print mb-6 flex gap-4">
+        <button onclick="window.print()" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full shadow-lg transition duration-200 flex items-center gap-2">
+            <i class="fa-solid fa-print"></i> พิมพ์รายงาน / บันทึกเป็น PDF
+        </button>
+    </div>
 
-        <!-- Main Content -->
-        <div class="content-grid">
-            
-            <!-- Section 1: ข้อมูลทั่วไป -->
-            <div class="section-box">
-                <div class="section-title">ข้อมูลทั่วไป</div>
-                <ul class="info-list">
-                    <li class="info-item">
-                        <span class="info-label">วันเกิด:</span>
-                        <span class="info-value">2 กันยายน 2554</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">เพศ:</span>
-                        <span class="info-value">หญิง</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">กรุ๊ปเลือด:</span>
-                        <span class="info-value">A</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">ราศี:</span>
-                        <span class="info-value">สิงห์</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">ส่วนสูง:</span>
-                        <span class="info-value">171 cm.</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">ภูมิลำเนา:</span>
-                        <span class="info-value">เชียงใหม่</span>
-                    </li>
-                </ul>
-            </div>
+    <!-- แผ่นการ์ดหลัก (ขนาดจำลองอัตราส่วน A4 บนหน้าจอ และปรับสเกลเมื่อพิมพ์จริง) -->
+    <div class="print-container w-[210mm] min-h-[297mm] bg-white rounded-3xl shadow-2xl overflow-hidden p-8 md:p-12 relative flex flex-col justify-between border border-blue-100 gradient-bg">
+        
+        <!-- รูปแบบตกแต่งพื้นหลังโปรยปราย -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-300 rounded-full filter blur-3xl opacity-20 -mr-20 -mt-20"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-sky-300 rounded-full filter blur-3xl opacity-25 -ml-32 -mb-32"></div>
 
-            <!-- Section 2: การเรียนและความฝัน -->
-            <div class="section-box">
-                <div class="section-title">การเรียนและความฝัน</div>
-                <ul class="info-list">
-                    <li class="info-item">
-                        <span class="info-label">วิชาที่ชอบ:</span>
-                        <span class="info-value">วิชาคณิตศาสตร์</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">วิชาที่ยาก:</span>
-                        <span class="info-value">วิชาอังกฤษ</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">ชมรม/กิจกรรม:</span>
-                        <span class="info-value">ชมรมวงโยธวาทิต</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">ความฝัน/อาชีพ:</span>
-                        <span class="info-value">อาชีพครู / หมอ</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">เพื่อนสนิท:</span>
-                        <span class="info-value">พี่ปริญญ์</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Section 3: ไลฟ์สไตล์และความชอบ -->
-            <div class="section-box">
-                <div class="section-title">ไลฟ์สไตล์และความชอบ</div>
-                <ul class="info-list">
-                    <li class="info-item">
-                        <span class="info-label">อาหารโปรด:</span>
-                        <span class="info-value">ข้าวผัดผงกะหรี่</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">สีที่ชอบ:</span>
-                        <span class="info-value">สีแดง, สีฟ้า</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">งานอดิเรก:</span>
-                        <span class="info-value">เล่นดนตรี</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">กีฬา:</span>
-                        <span class="info-value">บาสเก็ตบอล</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">เพลงที่ชอบ:</span>
-                        <span class="info-value">เพลงแนวสติง</span>
-                    </li>
-                    <li class="info-item">
-                        <span class="info-label">ซีรีส์/อนิเมะ:</span>
-                        <span class="info-value">ซีรีส์จีน</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Section 4: ทักษะและความสามารถ -->
-            <div class="section-box">
-                <div class="section-title">ทักษะและความสามารถ</div>
-                <div class="tag-container">
-                    <span class="tag skill-tag">ทักษะการร้องเพลง</span>
-                    <span class="tag skill-tag">ทักษะการเล่นดนตรี</span>
-                    <span class="tag skill-tag">ทักษะการเล่นเกม</span>
+        <div class="relative z-10 flex flex-col justify-between h-full">
+            <!-- ส่วนหัวการ์ด (Header) -->
+            <div class="border-b-2 border-blue-200 pb-6 mb-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="text-center md:text-left">
+                        <div class="inline-block px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full uppercase tracking-wider mb-2 shadow-sm">
+                            Student Profile Card
+                        </div>
+                        <h1 class="text-3xl md:text-4xl font-bold text-blue-900 tracking-tight">ด.ญ.ณัฐนิชา ยารังกา</h1>
+                        <p class="text-lg text-blue-700 font-medium mt-1 flex items-center justify-center md:justify-start gap-2">
+                            <i class="fa-solid fa-graduation-cap"></i> ชั้นมัธยมศึกษาปีที่ 3/2 &bull; โรงเรียนจอมทอง
+                        </p>
+                    </div>
+                    <!-- ตรา/สัญลักษณ์โรงเรียนหรือไอคอนน่ารัก -->
+                    <div class="w-24 h-24 bg-white rounded-2xl shadow-md border-2 border-blue-100 flex flex-col items-center justify-center p-2 text-center">
+                        <i class="fa-solid fa-school text-blue-600 text-3xl mb-1"></i>
+                        <span class="text-[10px] font-bold text-blue-800 leading-tight">โรงเรียนจอมทอง</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Section 5: คติประจำใจ (Full Width) -->
-            <div class="motto-section">
-                <div class="motto-title">คติประจำใจ</div>
-                <div class="motto-text">"ทำทุกวันให้ดีที่สุด"</div>
+            <!-- ส่วนข้อมูลหลัก (Main Content Grid) -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 flex-grow">
+                
+                <!-- คอลัมน์ซ้าย (ข้อมูลทั่วไปและคติประจำใจ) -->
+                <div class="md:col-span-5 flex flex-col gap-6">
+                    <!-- การ์ดรูปโปรไฟล์จำลองและชื่อเล่น -->
+                    <div class="glass-card rounded-2xl p-6 border border-white flex flex-col items-center text-center shadow-sm">
+                        <div class="w-32 h-32 bg-blue-100 rounded-full border-4 border-blue-500 shadow-inner flex items-center justify-center overflow-hidden mb-4">
+                            <!-- แสดงอวาตาร์นักเรียนหญิงน่ารัก -->
+                            <i class="fa-solid fa-user-astronaut text-blue-500 text-6xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-blue-900">น้องเพลง</h2>
+                        <p class="text-slate-500 text-sm mt-1">ชื่อเล่นสุดน่ารัก</p>
+                    </div>
+
+                    <!-- ข้อมูลส่วนตัวพื้นฐาน -->
+                    <div class="glass-card rounded-2xl p-6 border border-white shadow-sm flex-grow">
+                        <h3 class="text-lg font-bold text-blue-900 mb-4 flex items-center gap-2 border-b border-blue-100 pb-2">
+                            <i class="fa-solid fa-address-card text-blue-600"></i> ข้อมูลทั่วไป
+                        </h3>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex justify-between py-1 border-b border-blue-50/50">
+                                <span class="text-slate-500"><i class="fa-solid fa-cake-candles text-blue-400 w-5"></i> วันเกิด</span>
+                                <span class="font-semibold text-slate-800">2 กันยายน 2554</span>
+                            </li>
+                            <li class="flex justify-between py-1 border-b border-blue-50/50">
+                                <span class="text-slate-500"><i class="fa-solid fa-venus-mars text-blue-400 w-5"></i> เพศ</span>
+                                <span class="font-semibold text-slate-800">หญิง</span>
+                            </li>
+                            <li class="flex justify-between py-1 border-b border-blue-50/50">
+                                <span class="text-slate-500"><i class="fa-solid fa-droplet text-blue-400 w-5"></i> กรุ๊ปเลือด</span>
+                                <span class="font-semibold text-slate-800">A</span>
+                            </li>
+                            <li class="flex justify-between py-1 border-b border-blue-50/50">
+                                <span class="text-slate-500"><i class="fa-solid fa-sun text-blue-400 w-5"></i> ราศี</span>
+                                <span class="font-semibold text-slate-800">สิงห์</span>
+                            </li>
+                            <li class="flex justify-between py-1 border-b border-blue-50/50">
+                                <span class="text-slate-500"><i class="fa-solid fa-ruler-vertical text-blue-400 w-5"></i> ส่วนสูง</span>
+                                <span class="font-semibold text-slate-800">171 ซม.</span>
+                            </li>
+                            <li class="flex justify-between py-1">
+                                <span class="text-slate-500"><i class="fa-solid fa-house-chimney text-blue-400 w-5"></i> ภูมิลำเนา</span>
+                                <span class="font-semibold text-slate-800">จ.เชียงใหม่</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- คอลัมน์ขวา (ความชอบ กิจกรรม และความฝัน) -->
+                <div class="md:col-span-7 flex flex-col gap-6">
+                    
+                    <!-- ส่วนการศึกษาและกิจกรรม -->
+                    <div class="glass-card rounded-2xl p-6 border border-white shadow-sm">
+                        <h3 class="text-lg font-bold text-blue-900 mb-4 flex items-center gap-2 border-b border-blue-100 pb-2">
+                            <i class="fa-solid fa-book-open text-blue-600"></i> ชีวิตในรั้วโรงเรียน
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-100">
+                                <span class="text-xs text-emerald-700 font-semibold block mb-1">
+                                    <i class="fa-solid fa-star"></i> วิชาที่ชอบ
+                                </span>
+                                <span class="text-base font-bold text-emerald-950">วิชาคณิตศาสตร์</span>
+                            </div>
+                            <div class="p-3 bg-rose-50 rounded-xl border border-rose-100">
+                                <span class="text-xs text-rose-700 font-semibold block mb-1">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> วิชาที่ยาก
+                                </span>
+                                <span class="text-base font-bold text-rose-950">วิชาอังกฤษ</span>
+                            </div>
+                            <div class="p-3 bg-blue-50 rounded-xl border border-blue-100 col-span-2">
+                                <span class="text-xs text-blue-700 font-semibold block mb-1">
+                                    <i class="fa-solid fa-users-viewfinder"></i> ชมรม & กิจกรรม
+                                </span>
+                                <span class="text-base font-bold text-blue-950">ชมรมวงโยธวาทิต</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ส่วนไลฟ์สไตล์และความชอบส่วนตัว -->
+                    <div class="glass-card rounded-2xl p-6 border border-white shadow-sm flex-grow">
+                        <h3 class="text-lg font-bold text-blue-900 mb-4 flex items-center gap-2 border-b border-blue-100 pb-2">
+                            <i class="fa-solid fa-heart text-blue-600"></i> ไลฟ์สไตล์และความโปรดปราน
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-2">
+                                    <i class="fa-solid fa-utensils text-orange-500 mt-1"></i>
+                                    <div>
+                                        <span class="text-xs text-slate-500 block">อาหารโปรด</span>
+                                        <span class="font-semibold text-slate-800">ข้าวผัดผงกะหรี่</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="fa-solid fa-palette text-indigo-500 mt-1"></i>
+                                    <div>
+                                        <span class="text-xs text-slate-500 block">สีโปรด</span>
+                                        <div class="flex gap-2 items-center mt-1">
+                                            <span class="inline-block w-4 h-4 rounded-full bg-red-500 shadow-sm"></span>
+                                            <span class="inline-block w-4 h-4 rounded-full bg-blue-500 shadow-sm"></span>
+                                            <span class="font-medium text-slate-800">สีแดง / สีฟ้า</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="fa-solid fa-music text-purple-500 mt-1"></i>
+                                    <div>
+                                        <span class="text-xs text-slate-500 block">สไตล์เพลงที่ชอบ</span>
+                                        <span class="font-semibold text-slate-800">เพลงแนวสตริง</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-2">
+                                    <i class="fa-solid fa-guitar text-amber-600 mt-1"></i>
+                                    <div>
+                                        <span class="text-xs text-slate-500 block">งานอดิเรก</span>
+                                        <span class="font-semibold text-slate-800">เล่นดนตรี</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="fa-solid fa-basketball text-orange-600 mt-1"></i>
+                                    <div>
+                                        <span class="text-xs text-slate-500 block">กีฬาโปรด</span>
+                                        <span class="font-semibold text-slate-800">บาสเก็ตบอล</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="fa-solid fa-tv text-teal-600 mt-1"></i>
+                                    <div>
+                                        <span class="text-xs text-slate-500 block">ซีรีส์/อนิเมะ</span>
+                                        <span class="font-semibold text-slate-800">ซีรีส์จีน</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ข้อมูลเพิ่มเติมด้านล่าง (ทักษะ, เพื่อนสนิท, ความฝัน) -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-6">
+                <!-- เพื่อนสนิท & ความฝัน -->
+                <div class="md:col-span-5 flex flex-col gap-6">
+                    <div class="glass-card rounded-2xl p-5 border border-white shadow-sm">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs font-bold text-slate-500 uppercase">Best Friend</span>
+                            <i class="fa-solid fa-user-group text-blue-500"></i>
+                        </div>
+                        <p class="text-sm text-slate-500">เพื่อนสนิทคนสำคัญ</p>
+                        <p class="text-lg font-bold text-slate-800 mt-1">พี่ปริญญ์</p>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-5 border border-white shadow-sm bg-gradient-to-r from-blue-50 to-indigo-50">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs font-bold text-indigo-600 uppercase">My Dream Career</span>
+                            <i class="fa-solid fa-user-doctor text-indigo-500"></i>
+                        </div>
+                        <p class="text-sm text-slate-500">ความฝันและอาชีพที่อยากเป็น</p>
+                        <p class="text-lg font-bold text-indigo-900 mt-1">ครู / คุณหมอ</p>
+                    </div>
+                </div>
+
+                <!-- ทักษะความสามารถพิเศษ (Pills/Tags) -->
+                <div class="md:col-span-7">
+                    <div class="glass-card rounded-2xl p-6 border border-white shadow-sm h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-bold text-blue-900 mb-4 flex items-center gap-2 border-b border-blue-100 pb-2">
+                                <i class="fa-solid fa-wand-magic-sparkles text-blue-600"></i> ทักษะและความสามารถ (Skills)
+                            </h3>
+                            <div class="flex flex-wrap gap-2.5 mt-3">
+                                <span class="px-4 py-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xs font-bold rounded-full shadow-sm flex items-center gap-1.5 transition-transform hover:scale-105">
+                                    <i class="fa-solid fa-microphone"></i> ทักษะการร้องเพลง
+                                </span>
+                                <span class="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold rounded-full shadow-sm flex items-center gap-1.5 transition-transform hover:scale-105">
+                                    <i class="fa-solid fa-music"></i> ทักษะการเล่นดนตรี
+                                </span>
+                                <span class="px-4 py-2 bg-gradient-to-r from-violet-500 to-purple-500 text-white text-xs font-bold rounded-full shadow-sm flex items-center gap-1.5 transition-transform hover:scale-105">
+                                    <i class="fa-solid fa-gamepad"></i> ทักษะการเล่นเกม
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- ข้อมูลติดต่อด่วนด้านล่าง -->
+                        <div class="mt-6 pt-4 border-t border-blue-100 flex justify-between items-center text-xs text-slate-400">
+                            <span>#StudentCard #JomthongSchool</span>
+                            <span>ปรับปรุงล่าสุด: 2569</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ส่วนล่างสุด: คติประจำใจ (Motto Section) -->
+            <div class="mt-8 pt-6 border-t-2 border-blue-200 text-center">
+                <div class="inline-block relative px-8 py-3 bg-white/70 rounded-2xl border border-blue-100 shadow-inner">
+                    <span class="absolute -top-3 left-4 px-2 bg-blue-600 text-[10px] text-white rounded font-bold uppercase">คติประจำใจ</span>
+                    <p class="font-cute text-2xl text-blue-800 italic">" ทำทุกวันให้ดีที่สุด "</p>
+                </div>
             </div>
 
         </div>
